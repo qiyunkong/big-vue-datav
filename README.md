@@ -46,3 +46,35 @@ npm install vue-router
 
 
 ## 处理BUG
+
+
+
+## git步骤
+
+``` bash
+# 初始本地仓库
+git init
+
+# 查看当前状态 
+git status 
+
+# 看所有用户
+git config --list
+
+# 查看所有的分支 
+git branch -a 
+
+# 创建分支必须切换分支
+git checkout -b main 
+
+# 基于当前分支创建开发分支
+git branch develop
+
+```
+## git 命令
+
+``` bash
+#  和最后一个快照的合并
+git commit —amend
+
+```
