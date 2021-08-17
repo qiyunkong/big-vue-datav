@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/customPiePage',
+      name: 'customPiePage',
+      component: () => import('../views/CustomPiePage.vue')
+    },
+    {
+      path: '/globePage',
+      name: 'globePage',
+      component: () => import('../views/GlobePage.vue')
     }
   ]
 })

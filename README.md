@@ -48,6 +48,25 @@ npm install vue-router
 ## 处理BUG
 
 
+## 处理警告
+```bash
+geo3D exists.
+[Violation] Added non-passive event listener to a scroll-blocking 'mousewheel' event. Consider marking event handler as 'passive' to make the page more responsive. 
+See https://www.chromestatus.com/feature/5745543795965952
+[Violation] Added non-passive event listener to a scroll-blocking 'wheel' event. Consider marking event handler as 'passive' to make the page more responsive.
+See https://www.chromestatus.com/feature/5745543795965952
+rose1 series not exists. Legend data should be same with series name or data name.
+```
+
+## Vue 脚手架
+
+1.脚手架版本问题
+2.utils 封装API
+3.ESlint 配置
+4.webpack 配置
+
+
+
 
 ## git步骤
 

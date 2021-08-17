@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'echarts-gl'
 import dataV from '@jiaminghi/data-view'
 import * as echarts from 'echarts'
 
@@ -25,5 +26,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
-})
+  template: '<App/>',
+  render: (h) => h(App),
+}).$mount('#app');
