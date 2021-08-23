@@ -1,6 +1,7 @@
 # big-vue-datav
 
-> A Vue.js project 初始化项目
+> 一个基于 Vue、Datav、Echart 框架的 " **数据大屏项目** "，通过 Vue 组件实现数据动态刷新渲染，内部图表可实现自由替换。部分图表使用 DataV 自带组件，可进行更改，详情请点击下方 DataV 文档。
+
 
 
 ## 
@@ -43,10 +44,13 @@ npm install vue-router
 
 
 ## 功能需求
-
+1.2D图表展示
+2.布局适配,图表适配
+3.echarts动画配置
+4.echartsGL配置
 
 ## 处理BUG
-
+1.echarts重绘 &setOption第二个参数的含义 https://blog.csdn.net/mrhaoxiaojun/article/details/96491327
 
 ## 处理警告
 ```bash
@@ -97,3 +101,7 @@ git branch develop
 git commit —amend
 
 ```
+
+## 组件结构设计
+   Echart--->components--->echart-Page
+## 

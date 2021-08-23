@@ -22,7 +22,7 @@ export default {
     },
     height: {
       type: String,
-      default: '2.5rem'
+      default: '100%'
     },
     options: {
       type: Object,
@@ -53,3 +53,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .chart{
+    height:100%;
+    width:100%;
+  }
+</style>

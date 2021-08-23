@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <Echart
-      :options='options'
-      id='doughnutDev'
-      :width='width'
-      :height='height'
-    />
-  </div>
+  <Echart
+    :options='options'
+    id='custompie'
+    :width='width'
+    :height='height'
+  />
 </template>
 
 <script>
@@ -31,7 +29,7 @@ export default {
     },
     height: {
       type: String,
-      default: '200px'
+      default: '100%'
     }
   },
   watch: {

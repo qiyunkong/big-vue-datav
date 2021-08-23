@@ -1,5 +1,5 @@
 <template>
-  <div id='customPiePage'>
+  <div id='custom-pie-page' class="com-page">
     <CustomPie />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="com-container">
     <Chart :cdata='cdata' />
   </div>
 </template>
@@ -41,3 +41,5 @@ export default {
   }
 }
 </script>
+
+

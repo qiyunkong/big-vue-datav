@@ -1,5 +1,5 @@
 <template>
- <div class="globe">
+ <div class="com-container">
   <Chart :cdata="cdata"/>
  </div>
 </template>

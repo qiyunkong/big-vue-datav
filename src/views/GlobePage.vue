@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id='globe-page'  class="com-page">
     <GLobe/>
   </div>
 </template>
