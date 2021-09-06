@@ -10,13 +10,14 @@
     background-image: url("../assets/img/bg.jpg");
 
     .container{
-      .header-center{
-        display: inline-flex;
-        
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .layout-main{
+        flex: 1;
       }
 
     }
   }
   
 }
-

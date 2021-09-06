@@ -3,13 +3,13 @@
     <dv-decoration-8 class="header-left-decoration" :color="['rgb(86,138,234)', 'rgb(50,74,154)']"/>
     <dv-decoration-5 class="header-center-decoration" :color="['rgb(86,138,234)', 'rgb(50,74,154)']"/>
     <dv-decoration-8 class="header-right-decoration" :reverse="true" :color="['rgb(86,138,234)', 'rgb(50,74,154)']" />
-    <div class="center-title">大数据可视化平台</div>
+    <h1 class="center-title">大数据可视化平台</h1>
   </header>
 </template>
 
 <script>
 export default {
-  // name: 'LayoutHeader'
+  name: 'LayoutHeader'
 }
 </script>
 
