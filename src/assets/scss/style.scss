@@ -105,7 +105,7 @@ input::-moz-focus-inner { border: 0; padding: 0;}
 
 // 对齐
 @each $var in (left,center,right) {
-  text-#{$var} {
+  .text-#{$var} {
     text-align: $var !important;
   }
 }
@@ -142,7 +142,7 @@ input::-moz-focus-inner { border: 0; padding: 0;}
 
   //.mx-1
   @each $sizekey, $size in $spacing-sizes {
-    .#{$typekey}x-#{$sizekey}{
+    .#{$typekey}x-#{$sizekey} {
       #{$type}-left: $size * $spacing-base-size;
       #{$type}-right: $size * $spacing-base-size;
     }

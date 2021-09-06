@@ -18,6 +18,10 @@ import 'vue-awesome/icons/align-left.js'
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 
+
+// 适配flex
+import '@/common/js/flexible.js';
+
 // 引入全局css
 import './assets/scss/style.scss';
 
