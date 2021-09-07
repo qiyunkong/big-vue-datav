@@ -37,16 +37,14 @@ export default {
       handler (newData) {
         this.options = {
           color: [
-            'rgb(0,175,241)',
-            'rgb(35,218,242)',
-            'rgb(54,83,206)',
-            'rgb(10,40,117)',
-            'rgb(134,255,255)',
-            'rgb(36,92,206)'
+            'rgb(36,159,245)', // 正常
+            'rgb(0,232,234)',  // 暂未
+            'rgb(250,200,88)', // 空闲
+            'rgb(227,77,78)'   // 故障
           ],
           tooltip: {
             trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)',
+            formatter: '{a} <br/>{b} : ({c}%)', //每个字母只能用一次
             color: 'rgb(26,92,215)'
           },
           toolbox: {
@@ -54,22 +52,29 @@ export default {
           },
           calculable: true,
           legend: {
-            orient: 'horizontal',
-            icon: 'circle',
-            bottom: 0,
-            x: 'center',
-            data: newData.xData,
+            orient: 'vertical',     // 排列方式 vertical 列  horizontal 行
+            icon: 'circle',         // 图标类型 
+            bottom: 0,              // 调整位置
+            right:0,
+            top:40,   
+            data: newData.xData,    // 数据值
             textStyle: {
               color: 'rgb(158,229,250)'
             }
           },
           series: [
             {
-              name: '通过率统计',
+              name: '设备实时状态',
               type: 'pie',
-              radius: ['40%', '70%'],
+              radius: ['70%', '50%'],
+              // 连接图形和文字线条
+              labelLine:{
+                //length 连接图形的线条
+                length:25,
+                length2:20
+              },
               avoidLabelOverlap: true,
-              center: ['50%', '40%'],
+              center: ['45%', '40%'],
               data: newData.seriesData
             }
           ]

@@ -9,7 +9,9 @@
             <page-custom-pie/>
           </template>
           <template v-slot:gl>2</template>
-          <template v-slot:sort>3</template>
+          <template v-slot:sort>
+            <pageRollList></pageRollList>
+          </template>
           <template v-slot:dva>4</template>
           <template v-slot:data>5</template>
           <template v-slot:line>6</template>
@@ -20,9 +22,11 @@
 </template>
 
 <script>
+import RollListPage from './RollListPage'
 import CustomPiePage from './CustomPiePage'
 import layoutMain from '@/components/Layout/Main'
 import layoutHeader from '@/components/Layout/Header'
+
 export default {
   // 数据声明
   data () {
@@ -35,7 +39,8 @@ export default {
   components: {
     layoutMain,
     layoutHeader,
-    pageCustomPie:CustomPiePage
+    pageCustomPie:CustomPiePage,
+    pageRollList:RollListPage,
   },
 
   // 生命周期

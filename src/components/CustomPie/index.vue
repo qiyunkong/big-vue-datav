@@ -10,27 +10,23 @@ export default {
   data () {
     return {
       cdata: {
-        xData: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6'],
+        xData: ['正常运行', '暂未生产', '空闲设配', '故障设备'],
         seriesData: [
           {
-            name: '1分',
-            value: 100
+            name: '正常运行',
+            value: 50
           },
           {
-            name: '2分',
-            value: 200
+            name: '暂未生产',
+            value: 20
           },
           {
-            name: '3分',
-            value: 200
+            name: '空闲设配',
+            value: 10
           },
           {
-            name: '4分',
-            value: 100
-          },
-          {
-            name: '5分',
-            value: 100
+            name: '故障设备',
+            value: 30
           }
         ]
       }
