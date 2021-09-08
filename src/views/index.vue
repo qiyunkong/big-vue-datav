@@ -13,8 +13,12 @@
             <pageRollList></pageRollList>
           </template>
           <template v-slot:dva>4</template>
-          <template v-slot:data>5</template>
-          <template v-slot:line>6</template>
+          <template v-slot:data>
+            <pageRollListTime/>
+          </template>
+          <template v-slot:line>
+            <pageBasicLine/>
+          </template>
         </layoutMain>
       </section>
     </dv-full-screen-container>
@@ -22,10 +26,13 @@
 </template>
 
 <script>
-import RollListPage from './RollListPage'
+import BasicLinePage from './BasicLinePage'
 import CustomPiePage from './CustomPiePage'
+import RollListDvaPage from './RollListDvaPage'
+import RollListTimePage from './RollListTimePage'
 import layoutMain from '@/components/Layout/Main'
 import layoutHeader from '@/components/Layout/Header'
+
 
 export default {
   // 数据声明
@@ -40,7 +47,9 @@ export default {
     layoutMain,
     layoutHeader,
     pageCustomPie:CustomPiePage,
-    pageRollList:RollListPage,
+    pageRollList:RollListDvaPage,
+    pageRollListTime:RollListTimePage,
+    pageBasicLine:BasicLinePage
   },
 
   // 生命周期

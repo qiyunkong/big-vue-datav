@@ -6,14 +6,24 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/rolllistpage',
-      name: 'rolllistpage',
-      component: () => import('../views/RollListPage.vue')
+      path: '/rolllistdvapage',
+      name: 'rolllistdvapage',
+      component: () => import('../views/RollListDvaPage.vue')
     },
     {
       path: '/customPiePage',
       name: 'customPiePage',
       component: () => import('../views/CustomPiePage.vue')
+    },
+    {
+      path: '/basicLinePage',
+      name: 'basicLinePage',
+      component: () => import('../views/BasicLinePage.vue')
+    },
+    {
+      path: '/RollListTimePage',
+      name: 'RollListTimePage',
+      component: () => import('../views/RollListTimePage.vue')
     },
     {
       path: '/globePage',

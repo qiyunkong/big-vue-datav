@@ -50,7 +50,10 @@ npm install vue-router
 4.echartsGL配置
 
 ## 处理BUG
-1.echarts重绘 &setOption第二个参数的含义 https://blog.csdn.net/mrhaoxiaojun/article/details/96491327
+1.[echarts重绘 &setOption第二个参数的含义]( https://blog.csdn.net/mrhaoxiaojun/article/details/96491327)
+2.[Vue中对watch的理解（尤其是immediate和deep属性）](https://blog.csdn.net/qq_40323256/article/details/101907326)
+
+
 
 ## 处理警告
 ```bash
