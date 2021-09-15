@@ -48,8 +48,16 @@ export default {
           },
           yAxis: {
             type: "value",
+            splitLine:{
+              lineStyle:{
+                color:"rgba(255,255,255,0.25)"
+              }
+            }
           },
           legend: {
+            textStyle: {
+              color: "#fff",
+            },
             data: newData.xData,
           },
           series: newData.seriesData,

@@ -48,12 +48,18 @@ npm install vue-router
 2.布局适配,图表适配
 3.echarts动画配置
 4.echartsGL配置
+5.line实时更新数据 [心电图效果](https://www.jianshu.com/p/51b68832a485)
+6.pie自动高亮 [echart 饼图动画（饼图自动高亮展示）](https://blog.csdn.net/caidingnu/article/details/89139071)
+7.VUE滚动条插件 [vue-happy-scroll](https://blog.csdn.net/zhaofeiweb/article/details/81909988)
+8.axios [axios 封装](https://www.bilibili.com/video/BV1LJ41177B9?from=search&seid=17917190836598114638&spm_id_from=333.337.0.0)
 
 ## 处理BUG
 1.[echarts重绘 &setOption第二个参数的含义]( https://blog.csdn.net/mrhaoxiaojun/article/details/96491327)
 2.[Vue中对watch的理解（尤其是immediate和deep属性）](https://blog.csdn.net/qq_40323256/article/details/101907326)
+3.[dataV中数据赋值成功，但是页面数据未更新](https://blog.csdn.net/qq_46566911/article/details/109635852)
 
 
+ 
 
 ## 处理警告
 ```bash

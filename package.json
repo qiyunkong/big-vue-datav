@@ -6,16 +6,21 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:test": "set NODE_ENV=test && vue-cli-service serve",
+    "serve:production": "set NODE_ENV=Production && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@jiaminghi/data-view": "^2.10.0",
+    "axios": "^0.21.4",
     "echarts": "^5.1.2",
     "echarts-gl": "^2.0.8",
+    "qs": "^6.10.1",
     "vue": "^2.5.2",
     "vue-awesome": "^4.3.1",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",
@@ -26,6 +31,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
+    "vue-happy-scroll": "^2.1.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

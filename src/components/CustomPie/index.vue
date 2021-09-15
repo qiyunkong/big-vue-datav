@@ -34,6 +34,23 @@ export default {
   },
   components: {
     Chart
+  },
+  created(){
+    this.cropsdeviceList();
+    this.cropsdatainfo();
+  },
+  methods:{
+    // 获取全设备数据
+    async cropsdeviceList(){
+      // let statusList = ["正常运行","故障设备","空闲设备","暂未生产"] 
+      // const response =  await this.$api.cropsdevice.cropsdeviceList({id:1});
+      
+      
+    },
+    async cropsdatainfo(){
+      const response = await this.$api.cropsdata.cropsdataList({id:1})
+      console.log(response)
+    }
   }
 }
 </script>

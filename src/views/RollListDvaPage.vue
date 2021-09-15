@@ -1,5 +1,5 @@
 <template>
-  <div id='roll-list-page' class="com-page">
+  <div id='roll-Dva-page' class="com-page">
     <div class="bg-color-black">
       <h2 class="chart-title d-flex pt-2 pl-2">
         <span style="color:rgb(26,92,215)">
@@ -11,7 +11,7 @@
         </div>
       </h2>
       <main class="chart-scroll-boarde">
-         <dv-scroll-board :config="config" style="height:100%" />
+         <dv-scroll-board :config="config" style="height:100%"  ref="scrollBoard" @click="getMethod"/>
       </main>
     </div>
   </div>
@@ -22,36 +22,59 @@ export default {
   data() {
     return {
       config: {
-        header: ["组件", "分支", "覆盖率"],
-        data: [
-          ["组件1", "dev-1", "<span  class='colorYellow'>↑75%</span>"],
-          ["组件2", "dev-2", "<span  class='colorRed'>↓33%</span>"],
-          ["组件3", "dev-3", "<span  class='colorGrass'>↑100%</span>"],
-          ["组件4", "rea-1", "<span  class='colorGrass'>↑94%</span>"],
-          ["组件5", "rea-2", "<span  class='colorGrass'>↑95%</span>"],
-          ["组件6", "fix-2", "<span  class='colorGrass'>↑63%</span>"],
-          ["组件7", "fix-4", "<sp an  class='colorGrass'>↑84%</span>"],
-          ["组件8", "fix-7", "<span  class='colorRed'>↓46%</span>"],
-          ["组件9", "dev-2", "<span  class='colorRed'>↓13%</span>"],
-          ["组件10", "dev-9", "<span  class='colorGrass'>↑76%</span>"]
-        ],
-        rowNum: 7, //表格行数
+        header: ["状态", "设备编号","设备id"],
+        data: [],
+        rowNum: 5, //表格行数
         headerHeight: 35,
         headerBGC: "rgb(26,92,215,0.1)", //表头
-        oddRowBGC: "rgb(17,55,228,0.15)", //奇数行
-        evenRowBGC: "rgb(26,92,215,0.35)", //偶数行
-        index: true,
-        columnWidth: [50],
-        align: ["center"]
+        oddRowBGC: "rgb(0,0,0,0)", //奇数行
+        evenRowBGC: "rgb(0,0,0,0)", //偶数行
+        columnWidth: [100,250,100],
+        align: ["left","left","left"],
       }
     };
   },
+  mounted(){
+    this.cropsdeviceList();
+  
+  },
+  methods:{
+    // 获取全设备数据
+    async cropsdeviceList(){
+      let statusList = [
+        "<span class='stateBlue'>正常运行</span>",
+        "<span class='stateGreen'>暂未生产</span>",
+        "<span class='stateYellow'>空闲设备</span>",
+        "<span class='stateRed'>故障设备</span>"] 
+      const response =  await this.$api.cropsdevice.cropsdeviceList({id:1,page:1,count:200,});
+      const {data,code} =  response.data
+      const {config} = this;
+      if(code == 200){
+        config.data = data.map(({status,devicecard,id})=>{
+          return [statusList[status],devicecard,id]
+        })
+        this.config = {...config};
+      }
+      this.init(config.data)
+      
+    },
+    getMethod({row}){
+      this.$store.dispatch('increment',{
+        id:row[2]
+      })
+    },
+    init(data){
+       this.$store.dispatch('increment',{
+        id:data[0][2]
+      })
+    }
+  }
 
 };
 </script>
 
 <style lang="scss">
-#roll-list-page {
+#roll-Dva-page {
  padding:.125rem;
   .bg-color-black{
     display:flex;
@@ -62,6 +85,30 @@ export default {
       padding:.025rem;
       flex:1;
     }
+  }
+  .stateBlue{
+    padding:0.05rem;
+    border:1px solid rgb(36,159,245);
+    color:rgb(36,159,245);
+    font-size:0.2rem;
+  }
+  .stateGreen{
+    padding:0.05rem;
+    border:1px solid rgb(0,232,234);
+    color:rgb(0,232,234);
+    font-size:0.2rem;
+  }
+  .stateYellow{
+    padding:0.05rem;
+    border:1px solid rgb(250,200,88);
+    color:rgb(250,200,88);
+    font-size:0.2rem;
+  }
+  .stateRed{
+    padding:0.05rem;
+    border:1px solid rgb(227,77,78);
+    color:rgb(227,77,78);
+    font-size:0.2rem;
   }
 }
 </style>

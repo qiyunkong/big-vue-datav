@@ -8,11 +8,15 @@
           <template v-slot:pie>
             <page-custom-pie/>
           </template>
-          <template v-slot:gl>2</template>
-          <template v-slot:sort>
-            <pageRollList></pageRollList>
+          <template v-slot:gl>
+            2
           </template>
-          <template v-slot:dva>4</template>
+          <template v-slot:sort>
+            <RollStatisticsPage/>
+          </template>
+          <template v-slot:dva>
+             <RollListDvaPage/>
+          </template>
           <template v-slot:data>
             <pageRollListTime/>
           </template>
@@ -29,6 +33,7 @@
 import BasicLinePage from './BasicLinePage'
 import CustomPiePage from './CustomPiePage'
 import RollListDvaPage from './RollListDvaPage'
+import RollStatisticsPage from './RollStatisticsPage'
 import RollListTimePage from './RollListTimePage'
 import layoutMain from '@/components/Layout/Main'
 import layoutHeader from '@/components/Layout/Header'
@@ -47,9 +52,10 @@ export default {
     layoutMain,
     layoutHeader,
     pageCustomPie:CustomPiePage,
-    pageRollList:RollListDvaPage,
+    RollStatisticsPage:RollStatisticsPage,
     pageRollListTime:RollListTimePage,
-    pageBasicLine:BasicLinePage
+    pageBasicLine:BasicLinePage,
+    RollListDvaPage:RollListDvaPage,
   },
 
   // 生命周期
