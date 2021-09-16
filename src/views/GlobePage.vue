@@ -12,3 +12,12 @@ export default {
   }
 }
 </script>
+
+
+
+<style lang="scss">
+#globe-page {
+  width:100%;
+  height:80%;
+}
+</style>

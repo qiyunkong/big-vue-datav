@@ -7,11 +7,16 @@ function cropsdeviceList(params){
   })
 }
 
-function cropsdeviceId(){
-  
+function cropsdevicePie(params){
+  return axios.get('/echart/num',{
+    params,
+  })
 }
+
+
+
 
 export default{
   cropsdeviceList,
-  cropsdeviceId
+  cropsdevicePie
 }

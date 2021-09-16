@@ -22,18 +22,18 @@ export default {
   data() {
     return {
       config: {
-        header: ["设备", "温度", "湿度","导电率","土壤氢","土壤氮"],
+        header: ["数据总和", "数据比例"],
         data: [
-          ["设备1", "dev-1", "dev-1", "dev-1", "dev-1", "<span  class='colorYellow'>↑75%</span>"],
-          ["设备2", "dev-2", "dev-2", "dev-2", "dev-2", "<span  class='colorRed'>↓33%</span>"],
-          ["设备3", "dev-3", "dev-3", "dev-3", "dev-3", "<span  class='colorGrass'>↑100%</span>"],
-          ["设备4", "rea-1", "rea-1", "rea-1", "rea-1", "<span  class='colorGrass'>↑94%</span>"],
-          ["设备5", "rea-2", "rea-2", "rea-2", "rea-2", "<span  class='colorGrass'>↑95%</span>"],
-          ["设备6", "fix-2", "fix-2", "fix-2", "fix-2", "<span  class='colorGrass'>↑63%</span>"],
-          ["设备7", "fix-4", "fix-4", "fix-4", "fix-4", "<sp an  class='colorGrass'>↑84%</span>"],
-          ["设备8", "fix-7", "fix-7", "fix-7", "fix-7", "<span  class='colorRed'>↓46%</span>"],
-          ["设备9", "dev-2", "dev-2", "dev-2", "dev-2", "<span  class='colorRed'>↓13%</span>"],
-          ["设备10", "dev-9", "dev-9", "dev-9", "dev-9", "<span  class='colorGrass'>↑76%</span>"]
+          ["10", "<span  class='colorYellow'>↑75%</span>"],
+          ["20", "<span  class='colorRed'>↓33%</span>"],
+          ["60", "<span  class='colorGrass'>↑100%</span>"],
+          ["60", "<span  class='colorGrass'>↑94%</span>"],
+          ["60", "<span  class='colorGrass'>↑95%</span>"],
+          ["20", "<span  class='colorGrass'>↑63%</span>"],
+          ["40", "<sp an  class='colorGrass'>↑84%</span>"],
+          ["30", "<span  class='colorRed'>↓46%</span>"],
+          ["20", "<span  class='colorRed'>↓13%</span>"],
+          ["100", "<span  class='colorGrass'>↑76%</span>"]
         ],
         rowNum: 7, //表格行数
         headerHeight: 35,

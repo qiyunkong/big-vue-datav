@@ -39,8 +39,10 @@ export default {
     options: {
       handler (options) {
         // 设置true清空echart缓存
-        this.chart.setOption(options, true)
-      }
+        console.log("====>",options)
+        this.chart.setOption(options,true)
+      },
+
     }
   },
   mounted () {

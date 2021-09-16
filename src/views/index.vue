@@ -9,7 +9,10 @@
             <page-custom-pie/>
           </template>
           <template v-slot:gl>
-            2
+            <GlobePage/>
+          </template>
+          <template v-slot:panel>
+            <InfoDva/>
           </template>
           <template v-slot:sort>
             <RollStatisticsPage/>
@@ -30,6 +33,8 @@
 </template>
 
 <script>
+import GlobePage from './GlobePage';
+import InfoDva from './InfoDva';
 import BasicLinePage from './BasicLinePage'
 import CustomPiePage from './CustomPiePage'
 import RollListDvaPage from './RollListDvaPage'
@@ -56,6 +61,8 @@ export default {
     pageRollListTime:RollListTimePage,
     pageBasicLine:BasicLinePage,
     RollListDvaPage:RollListDvaPage,
+    GlobePage:GlobePage,
+    InfoDva:InfoDva,
   },
 
   // 生命周期

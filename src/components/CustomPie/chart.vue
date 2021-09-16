@@ -39,7 +39,7 @@ export default {
           ],
           tooltip: {
             trigger: "item",
-            formatter: "{a} <br/>{b} : ({c}%)", //每个字母只能用一次
+            formatter: "{a} <br/>{b} : ({c}台)", //每个字母只能用一次
             color: "rgb(26,92,215)",
           },
           toolbox: {

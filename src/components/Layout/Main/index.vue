@@ -4,7 +4,10 @@
       <dv-border-box-13><slot name="pie"></slot></dv-border-box-13>
     </section>
     <section class="main-item gl">
-      <dv-border-box-13><slot name="gl"></slot></dv-border-box-13>
+      <slot name="gl"></slot>
+      <section class="panel">
+         <dv-border-box-13><slot name="panel"></slot> </dv-border-box-13>
+      </section>
     </section>
     <section class="main-item sort">
       <dv-border-box-13><slot name="sort"></slot></dv-border-box-13>
@@ -30,7 +33,7 @@ export default {
 <style lang="scss">
 #layout-main {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1.1fr 2fr 1fr;
   grid-template-rows: 1fr 1.2fr 1fr;
   grid-template-areas:
   "pie gl sort"
@@ -43,6 +46,18 @@ export default {
     }
     &.gl{
       grid-area: gl;
+      position:relative;
+      width: 100%;
+      .panel{
+        position: absolute;
+        z-index: 2;
+        height:3.899363rem;
+        width: 100%;
+        padding:0 .0125rem;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+      }
     }
     &.sort{
       grid-area: sort;

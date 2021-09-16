@@ -36,21 +36,23 @@ export default {
     Chart
   },
   created(){
-    this.cropsdeviceList();
-    this.cropsdatainfo();
+    this.cropsdevicePie();
+
   },
   methods:{
     // 获取全设备数据
-    async cropsdeviceList(){
-      // let statusList = ["正常运行","故障设备","空闲设备","暂未生产"] 
-      // const response =  await this.$api.cropsdevice.cropsdeviceList({id:1});
-      
+    async cropsdevicePie(){
+      const {cdata} = this;
+      // const response =  await this.$api.cropsdevice.cropsdevicePie({id:1});
+      // const {online,stanby,fault,offline} = response.data.data;
+      cdata.seriesData[0].value = 3
+      cdata.seriesData[1].value = 1
+      cdata.seriesData[2].value = 1
+      cdata.seriesData[3].value = 1
+      this.cdata = {...cdata}
       
     },
-    async cropsdatainfo(){
-      const response = await this.$api.cropsdata.cropsdataList({id:1})
-      console.log(response)
-    }
+
   }
 }
 </script>

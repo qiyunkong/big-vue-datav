@@ -6,7 +6,7 @@
          <icon name="align-left"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">设备数据排行榜</span>
+          <span class="fs-xl text mx-2">所有设备目前状况</span>
           <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" :color="['rgb(26,92,215)', 'rgb(4,20,82)']" />
         </div>
       </h2>
@@ -29,8 +29,8 @@ export default {
         headerBGC: "rgb(26,92,215,0.1)", //表头
         oddRowBGC: "rgb(0,0,0,0)", //奇数行
         evenRowBGC: "rgb(0,0,0,0)", //偶数行
-        columnWidth: [100,250,100],
-        align: ["left","left","left"],
+        columnWidth: [100,200,80],
+        align: ["left","left","right"],
       }
     };
   },
@@ -55,17 +55,25 @@ export default {
         })
         this.config = {...config};
       }
-      this.init(config.data)
+      this.init(config.data[0][2],data[0])
       
     },
     getMethod({row}){
-      this.$store.dispatch('increment',{
+      this.$store.dispatch('setLineData',{
         id:row[2]
       })
+      this.$store.commit('setDvaInfo',{
+        row:{
+          devicecard:row[1]
+        }
+      })
     },
-    init(data){
-       this.$store.dispatch('increment',{
-        id:data[0][2]
+    init(id,row){
+      this.$store.dispatch('setLineData',{
+        id:id
+      })
+      this.$store.commit('setDvaInfo',{
+        row:row
       })
     }
   }

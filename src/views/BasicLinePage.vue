@@ -3,7 +3,7 @@
     <div class="bg-color-black">
       <h2 class="chart-title d-flex pt-2 pl-2">
         <span style="color:rgb(26,92,215)">
-          <icon name="chart-pie"></icon>
+          <icon name="chart-line"></icon>
         </span>
         <div class="d-flex">
           <span class="fs-xl text mx-2">设备概况</span>
