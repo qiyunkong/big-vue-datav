@@ -13,10 +13,20 @@ function cropsdevicePie(params){
   })
 }
 
+function cropsdeviceTime(params){
+  return axios.get('/data/time',{
+    params,
+  })
+}
+
+
+
+
 
 
 
 export default{
   cropsdeviceList,
-  cropsdevicePie
+  cropsdevicePie,
+  cropsdeviceTime
 }

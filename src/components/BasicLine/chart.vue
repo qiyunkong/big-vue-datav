@@ -41,13 +41,18 @@ export default {
             bottom: "10",
             containLabel: true,
           },
+         tooltip: {
+            trigger: "item",
+          },
           xAxis: {
             type: "category",
-            boundaryGap: false,
+            // boundaryGap: false,
+             scale:true,
             data: newData.xAxisData,
           },
           yAxis: {
             type: "value",
+            scale:true,
             splitLine:{
               lineStyle:{
                 color:"rgba(255,255,255,0.25)"

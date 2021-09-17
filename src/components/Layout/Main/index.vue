@@ -51,7 +51,7 @@ export default {
       .panel{
         position: absolute;
         z-index: 2;
-        height:3.899363rem;
+        height:3.789363rem;
         width: 100%;
         padding:0 .0125rem;
         bottom: 0;

@@ -9,7 +9,8 @@ const store = new Vuex.Store({
     linedata: [],
     rolllistdate:[],
     dvainfo:{},
-    AlarmClock:{}
+    AlarmClock:{},
+    id:0
   },
   mutations: {
     setLineData (state,payload) {
@@ -24,7 +25,7 @@ const store = new Vuex.Store({
           count:5,
         }).then((response)=>{
           const {data} = response;
-          state.linedata= data.data
+          state.linedata= data.data;
         })
       }
       state.AlarmClock =  setInterval(function(){
@@ -39,8 +40,13 @@ const store = new Vuex.Store({
       },1000*60)
     },
     setDvaInfo(state,payload){
-     const {row} = payload
+      const {row} = payload
       state.dvainfo = {...row}
+    },
+    setId(state,payload){
+      const {id} = payload
+      console.log(id)
+      state.id = id
     }
   },
   actions: {

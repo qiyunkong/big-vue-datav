@@ -25,39 +25,85 @@ export default {
         header: ["日期",'温度','湿度','土壤氮','土壤氢','导电率',"酸碱度"],
         data: [],
         rowNum: 4, //表格行数
-        headerHeight: 35,
+        headerHeight: 45,
         headerBGC: "rgb(26,92,215,0.1)", //表头
         oddRowBGC: "rgb(0,0,0,0)", //奇数行
         evenRowBGC: "rgb(0,0,0,0)", //偶数行
         columnWidth: [75,65,65,65,65,65,65],
-        // align: ["left","right"]
+        waitTime:1000*15,
+       
       }
     };
   },
   computed:{
-    lineData(){
-      return this.$store.state.linedata
+    stateid(){
+      return this.$store.state.id
     }
   },
   watch:{
-    lineData:{
-     handler(newData){
+    stateid:{
+      handler(newData){
+        const That = this;
         const {config} = this;
-        newData.forEach(({create_time,sTMP,sHR,NN,KK,sEC,sPH})=>{
-          create_time = create_time.split("T")[1]
-          let row = [
-          `<time class='colorBlue'>${create_time}</time>`, 
-          `<time class='colorBlue'>${sTMP}</time>`, 
-          `<time class='colorBlue'>${sHR}</time>`, 
-          `<time class='colorBlue'>${NN}</time>`, 
-          `<time class='colorBlue'>${KK}</time>`, 
-          `<time class='colorBlue'>${sEC}</time>`, 
-          `<span  class='colorBlue'>${sPH}</span>`
-          ]
-          config.data.push(row)
+        // 清除定时定时器
+        clearInterval (this.cleartime)
+      
+
+        this.$api.cropsdata.cropsdataList({
+          id:newData,
+          page:1,
+          count:8,
+        }).then((response)=>{
+          const {data} = response;
+          let _newData = data.data;
+          config.data = []
+          _newData.reverse()
+          _newData.forEach(({create_time,sTMP,sHR,NN,KK,sEC,sPH})=>{
+            create_time = create_time.split("T")[1]
+            let row = [
+            `<time class='colorBlue'>${create_time}</time>`, 
+            `<time class='colorBlue'>${sTMP}</time>`, 
+            `<time class='colorBlue'>${sHR}</time>`, 
+            `<time class='colorBlue'>${NN}</time>`, 
+            `<time class='colorBlue'>${KK}</time>`, 
+            `<time class='colorBlue'>${sEC}</time>`, 
+            `<span  class='colorBlue'>${sPH}</span>`
+            ]
+            config.data.push(row)
+          })
+          this.config= {...config}
         })
-        this.config= {...config}
-     } 
+        this.cleartime = setInterval(function(){
+          That.$api.cropsdata.cropsdataList({
+            id:newData,
+            page:1,
+            count:5,
+          }).then((response)=>{
+            const {data} = response;
+            let _newData = data.data;
+            config.data = []
+            _newData.reverse()
+            _newData.forEach(({create_time,sTMP,sHR,NN,KK,sEC,sPH})=>{
+              create_time = create_time.split("T")[1]
+              let row = [
+              `<time class='colorBlue'>${create_time}</time>`, 
+              `<time class='colorBlue'>${sTMP}</time>`, 
+              `<time class='colorBlue'>${sHR}</time>`, 
+              `<time class='colorBlue'>${NN}</time>`, 
+              `<time class='colorBlue'>${KK}</time>`, 
+              `<time class='colorBlue'>${sEC}</time>`, 
+              `<span  class='colorBlue'>${sPH}</span>`
+              ]
+              config.data.push(row)
+            })
+            // 截取长度
+            // config.data = config.data.filter(item => item == 5); 
+            That.config= {...config}
+          })
+        },1000*60)
+      },
+      immediate: true,
+      deep: true, 
     }
   }
 

@@ -11,7 +11,7 @@
         </div>
       </h2>
       <main class="chart-scroll-boarde">
-         <dv-scroll-board :config="config" style="height:100%"  />
+         <dv-scroll-board :config="config" style="height:100%"  ref="scrollStatistics" />
       </main>
     </div>
   </div>
@@ -22,30 +22,45 @@ export default {
   data() {
     return {
       config: {
-        header: ["数据总和", "数据比例"],
-        data: [
-          ["10", "<span  class='colorYellow'>↑75%</span>"],
-          ["20", "<span  class='colorRed'>↓33%</span>"],
-          ["60", "<span  class='colorGrass'>↑100%</span>"],
-          ["60", "<span  class='colorGrass'>↑94%</span>"],
-          ["60", "<span  class='colorGrass'>↑95%</span>"],
-          ["20", "<span  class='colorGrass'>↑63%</span>"],
-          ["40", "<sp an  class='colorGrass'>↑84%</span>"],
-          ["30", "<span  class='colorRed'>↓46%</span>"],
-          ["20", "<span  class='colorRed'>↓13%</span>"],
-          ["100", "<span  class='colorGrass'>↑76%</span>"]
-        ],
+        header: ["设备id", "数据总和","数据比例"],
+        data: [],
         rowNum: 7, //表格行数
         headerHeight: 35,
         headerBGC: "rgb(26,92,215,0.1)", //表头
         oddRowBGC: "rgb(17,55,228,0.15)", //奇数行
         evenRowBGC: "rgb(26,92,215,0.35)", //偶数行
-        index: true,
-        columnWidth: [50],
-        align: ["center"]
-      }
+        // index: true,
+        columnWidth: [100,200,100],
+        align: ["center","center","right"],
+        waitTime:1000*30,
+      },
+      index:0
     };
   },
+ mounted(){
+    this.cropsdeviceTime();
+    let That = this;
+    setInterval(function(){
+      That.cropsdeviceTime()
+    },1000*60)
+  },
+  methods:{
+    // 获取全设备数据
+    async cropsdeviceTime(){
+      const response =  await this.$api.cropsdevice.cropsdeviceTime();
+      const {data,code} =  response.data
+      const {config} = this;
+      if(config.data.lenght==8){
+        config.data = []
+      }
+      if(code == 200){
+       data.forEach(({id, count, percent})=>{
+          config.data.push([id,count,percent+"%"])
+        })
+      }
+      this.config = {...config}
+    }
+  }
 
 };
 </script>

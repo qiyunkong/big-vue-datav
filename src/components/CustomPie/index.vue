@@ -43,12 +43,12 @@ export default {
     // 获取全设备数据
     async cropsdevicePie(){
       const {cdata} = this;
-      // const response =  await this.$api.cropsdevice.cropsdevicePie({id:1});
-      // const {online,stanby,fault,offline} = response.data.data;
-      cdata.seriesData[0].value = 3
-      cdata.seriesData[1].value = 1
-      cdata.seriesData[2].value = 1
-      cdata.seriesData[3].value = 1
+      const response =  await this.$api.cropsdevice.cropsdevicePie({id:1});
+      const {online,stanby,fault,offline} = response.data.data;
+      cdata.seriesData[0].value = online
+      cdata.seriesData[1].value = stanby
+      cdata.seriesData[2].value = fault
+      cdata.seriesData[3].value = offline
       this.cdata = {...cdata}
       
     },

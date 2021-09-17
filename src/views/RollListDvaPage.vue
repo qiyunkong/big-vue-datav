@@ -59,7 +59,8 @@ export default {
       
     },
     getMethod({row}){
-      this.$store.dispatch('setLineData',{
+      console.log("row[2]===>",row[2])
+      this.$store.commit('setId',{
         id:row[2]
       })
       this.$store.commit('setDvaInfo',{
@@ -69,7 +70,8 @@ export default {
       })
     },
     init(id,row){
-      this.$store.dispatch('setLineData',{
+      console.log("row[2]===>",id)
+      this.$store.commit('setId',{
         id:id
       })
       this.$store.commit('setDvaInfo',{
