@@ -7,10 +7,11 @@ import axios from 'axios';
  * 
  */
 switch (process.env.NODE_ENV) {
-  case "production":
-    axios.defaults.baseURL = 'http://192.168.2.37:6777';
+  
+  case "pro":
+    axios.defaults.baseURL = 'http://223.112.12.98:6790';
     break;
-  case "test":
+  case "dev":
     axios.defaults.baseURL = 'http://192.168.2.37:6777';
     break;
   default:

@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "serve:test": "set NODE_ENV=test && vue-cli-service serve",
-    "serve:production": "set NODE_ENV=Production && vue-cli-service serve",
+    "serve:dev": "set NODE_ENV=dev&&vue-cli-service serve",
+    "serve:pro": "set NODE_ENV=pro&&vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
