@@ -46,8 +46,10 @@ export default {
           },
           xAxis: {
             type: "category",
-            // boundaryGap: false,
-             scale:true,
+            boundaryGap: false,
+            scale:true,
+            smooth: true,
+              
             data: newData.xAxisData,
           },
           yAxis: {

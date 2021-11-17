@@ -37,7 +37,7 @@ export default {
   watch: {
     options: {
       handler (options) {
-        this.chart.clear()
+        // this.chart.clear()
         this.chart.setOption(options,true)
       }
     }

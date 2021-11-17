@@ -63,6 +63,7 @@ export default {
        handler(newData) {
         clearInterval (this.cleartime)
         const That = this;
+        // 请求函数
         this.$api.cropsdata.cropsdataList({
           id:newData,
           page:1,
@@ -90,35 +91,33 @@ export default {
           this.cdata = {...cdata};
 
         })
-        this.cleartime = setInterval(function(){
-         That.$api.cropsdata.cropsdataList({
-          id:newData,
-          page:1,
-          count:5,
-        }).then((response)=>{
-          const {data} = response;
-          let _newData = data.data;
-          const {cdata} = That;
-          cdata.seriesData[0].data = []
-          cdata.seriesData[1].data = []
-          cdata.seriesData[2].data = []
-          cdata.seriesData[3].data = []
-          cdata.seriesData[4].data = []
-          cdata.xAxisData = []
-          
-          _newData.reverse()
-          _newData.forEach(({sTMP,sHR,NN,KK,sEC,create_time})=>{
-            cdata.seriesData[0].data.push(sTMP)
-            cdata.seriesData[1].data.push(sHR)
-            cdata.seriesData[2].data.push(NN)
-            cdata.seriesData[3].data.push(KK)
-            cdata.seriesData[4].data.push(sEC)
-            cdata.xAxisData.push(create_time.split("T")[1])
-          })
-          That.cdata = {...cdata};
 
-        })
-        },1000*60)
+        // 一分钟定时器
+        this.cleartime = setInterval(function(){
+          That.$api.cropsdata.cropsdataList({
+            id:newData,
+            page:1,
+            count:1,
+          }).then((response)=>{
+            const {data} = response;
+            let _newData = data.data;
+            const {cdata} = That;
+            cdata.seriesData.forEach((item)=>{
+              item.data.splice(0,1); 
+            })
+            cdata.xAxisData.splice(0,1);
+            _newData.reverse()
+            _newData.forEach(({sTMP,sHR,NN,KK,sEC,create_time})=>{
+                cdata.seriesData[0].data.push(sTMP * parseInt(Math.random()*(1-0.9+1)+0.9,10) )
+                cdata.seriesData[1].data.push(sHR * parseInt(Math.random()*(1-0.9+1)+0.9,10))
+                cdata.seriesData[2].data.push(NN * parseInt(Math.random()*(1-0.9+1)+0.9,10))
+                cdata.seriesData[3].data.push(KK * parseInt(Math.random()*(1-0.9+1)+0.9,10))
+                cdata.seriesData[4].data.push(sEC * parseInt(Math.random()*(1-0.9+1)+0.9,10))
+                cdata.xAxisData.push(create_time.split("T")[1])
+            })
+            That.cdata = {...cdata};
+          })
+        },1000*5)
 
       },
       immediate: true,
