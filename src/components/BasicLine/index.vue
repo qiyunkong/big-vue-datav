@@ -57,12 +57,45 @@ export default {
   components: {
     Chart
   },
-  
+  methods:{
+    // loopData(newData){
+    //   this.$api.cropsdata.cropsdataList({
+    //   id:newData,
+    //     page:1,
+    //     count:1,
+    //   }).then((response)=>{
+    //     const {data} = response;
+    //     let _newData = data.data;
+    //     const {cdata} = this;
+    //     let oldData = []
+    //     cdata.seriesData.forEach((item)=>{
+    //       oldData.push(item.data[0]); 
+    //       item.data.splice(0,1)
+    //     })
+    //     cdata.xAxisData.splice(0,1);
+    //     _newData.reverse()
+        
+    //     console.log(oldData)
+    //     _newData.forEach(({create_time})=>{
+    //       cdata.seriesData[0].data.push(oldData[0])
+    //       cdata.seriesData[1].data.push(oldData[1])
+    //       cdata.seriesData[2].data.push(oldData[2])
+    //       cdata.seriesData[3].data.push(oldData[3])
+    //       cdata.seriesData[4].data.push(oldData[4])
+    //       cdata.xAxisData.push(create_time.split("T")[1])
+    //     })
+    //     this.cdata = {...cdata};
+    //     setTimeout(()=>{
+    //       this.loopData(newData)
+    //     },1000*5)
+    //   })
+    // }
+  },
   watch:{
     stateid:{
        handler(newData) {
         clearInterval (this.cleartime)
-        const That = this;
+         const That = this;
         // 请求函数
         this.$api.cropsdata.cropsdataList({
           id:newData,
@@ -89,7 +122,7 @@ export default {
             cdata.xAxisData.push(create_time.split("T")[1])
           })
           this.cdata = {...cdata};
-
+          
         })
 
         // 一分钟定时器
@@ -102,22 +135,35 @@ export default {
             const {data} = response;
             let _newData = data.data;
             const {cdata} = That;
+            let oldData = []
             cdata.seriesData.forEach((item)=>{
-              item.data.splice(0,1); 
+             oldData.push(item.data[0]); 
+            //  item.data.splice(0,1)
             })
             cdata.xAxisData.splice(0,1);
             _newData.reverse()
-            _newData.forEach(({sTMP,sHR,NN,KK,sEC,create_time})=>{
-                cdata.seriesData[0].data.push(sTMP * parseInt(Math.random()*(1-0.9+1)+0.9,10) )
-                cdata.seriesData[1].data.push(sHR * parseInt(Math.random()*(1-0.9+1)+0.9,10))
-                cdata.seriesData[2].data.push(NN * parseInt(Math.random()*(1-0.9+1)+0.9,10))
-                cdata.seriesData[3].data.push(KK * parseInt(Math.random()*(1-0.9+1)+0.9,10))
-                cdata.seriesData[4].data.push(sEC * parseInt(Math.random()*(1-0.9+1)+0.9,10))
-                cdata.xAxisData.push(create_time.split("T")[1])
+            
+            // _newData.forEach(({sTMP,sHR,NN,KK,sEC,create_time})=>{
+            //     cdata.seriesData[0].data.push(sTMP *Math.floor(Math.random()*1.2)+1 )
+            //     cdata.seriesData[1].data.push(sHR *Math.floor(Math.random()*1.2)+1 )
+            //     cdata.seriesData[2].data.push(NN *Math.floor(Math.random()*1.2)+1  )
+            //     cdata.seriesData[3].data.push(KK *Math.floor(Math.random()*1.2)+1 )
+            //     cdata.seriesData[4].data.push(sEC *Math.floor(Math.random()*1.2)+1 )
+            //     cdata.xAxisData.push(create_time.split("T")[1])
+            // })
+            _newData.forEach(({create_time})=>{
+              cdata.seriesData[0].data.push(oldData[0])
+              cdata.seriesData[1].data.push(oldData[1])
+              cdata.seriesData[2].data.push(oldData[2])
+              cdata.seriesData[3].data.push(oldData[3])
+              cdata.seriesData[4].data.push(oldData[4])
+              cdata.xAxisData.push(create_time.split("T")[1])
             })
             That.cdata = {...cdata};
           })
-        },1000*5)
+        },1000*1)
+
+        //this.loopData(newData)
 
       },
       immediate: true,

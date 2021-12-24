@@ -52,7 +52,6 @@
 		watch:{
     info:{
      handler(newData){
-			console.log(newData)
 			this.dvainfo = {...newData}
      } 
     }

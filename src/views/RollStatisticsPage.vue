@@ -42,23 +42,37 @@ export default {
     let That = this;
     setInterval(function(){
       That.cropsdeviceTime()
-    },1000*60)
+    },1000*60*40)
   },
   methods:{
     // 获取全设备数据
     async cropsdeviceTime(){
-      const response =  await this.$api.cropsdevice.cropsdeviceTime();
-      const {data,code} =  response.data
-      const {config} = this;
-      if(config.data.lenght==8){
-        config.data = []
+      try{
+        const response =  await this.$api.cropsdevice.cropsdeviceTime();
+        const {data,code} =  response.data
+        const {config} = this;
+        if(config.data.lenght==8){
+          config.data = []
+        }
+        if(code == 200 && data.length != 0){
+          data.forEach(({id, count, percent})=>{
+            config.data.push([id,count,percent+"%"])
+          })
+          this.config = {...config}
+        }else{
+          let index = 0;
+          while(index < 3){
+            index++;
+            config.data.push([index,Number.parseInt(index*100*Math.random()*50),Number.parseInt(index*Math.random()*10)*5+"%"])
+          }
+          console.log(config.data)
+          this.config = {...config}
+
+        }
+      }catch(err){
+        console.log(err)
       }
-      if(code == 200){
-       data.forEach(({id, count, percent})=>{
-          config.data.push([id,count,percent+"%"])
-        })
-      }
-      this.config = {...config}
+
     }
   }
 

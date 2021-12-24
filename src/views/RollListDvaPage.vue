@@ -46,7 +46,7 @@ export default {
         "<span class='stateGreen'>暂未生产</span>",
         "<span class='stateYellow'>空闲设备</span>",
         "<span class='stateRed'>故障设备</span>"] 
-      const response =  await this.$api.cropsdevice.cropsdeviceList({id:1,page:1,count:200,});
+      const response =  await this.$api.cropsdevice.cropsdeviceList({id:2,page:1,count:200,});
       const {data,code} =  response.data
       const {config} = this;
       if(code == 200){
@@ -59,7 +59,6 @@ export default {
       
     },
     getMethod({row}){
-      console.log("row[2]===>",row[2])
       this.$store.commit('setId',{
         id:row[2]
       })
@@ -70,7 +69,6 @@ export default {
       })
     },
     init(id,row){
-      console.log("row[2]===>",id)
       this.$store.commit('setId',{
         id:id
       })

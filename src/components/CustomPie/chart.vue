@@ -31,6 +31,7 @@ export default {
     cdata: {
       handler(newData) {
         this.options = {
+          animation: false,
           color: [
             "rgb(36,159,245)", // 正常
             "rgb(0,232,234)", // 暂未

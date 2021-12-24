@@ -7,15 +7,14 @@ import axios from 'axios';
  * 
  */
 switch (process.env.NODE_ENV) {
-  
   case "pro":
-    axios.defaults.baseURL = 'http://223.112.12.98:6790';
+    axios.defaults.baseURL = 'https://agric.lo3.cn';
     break;
   case "dev":
     axios.defaults.baseURL = 'http://192.168.2.37:6777';
     break;
   default:
-    axios.defaults.baseURL = 'http://192.168.2.37:6777';
+    axios.defaults.baseURL = 'https://agric.lo3.cn';
 }
 
 /**
